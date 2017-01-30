@@ -47,6 +47,7 @@ namespace iNewCord
                 command_prefix_char = char.Parse(config_data["command_prefix_char"].Value<string>());
                 inewsekai_server_json = config_data["inewsekai_server_json"].Value<string>();
                 SteamApiKey = config_data["SteamApiKey"].Value<string>();
+                MySqlConnectionString = config_data["mysql_conn_str"].Value<string>();
             }
             catch(Exception any_err)
             {
@@ -107,5 +108,6 @@ namespace iNewCord
         public char command_prefix_char { get; set; }
         public string inewsekai_server_json { get; set; }
         public string SteamApiKey { get; set; }
+        public string MySqlConnectionString { get; set; }
     }
 }
