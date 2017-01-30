@@ -192,8 +192,7 @@ namespace iNewCord
         {
             lastSyncDatetime = DateTime.Now;
             Console.WriteLine($"[{lastSyncDatetime.ToString()}] Syncing Players Data!");
-            string myConnectionString = "server=inewsekaidb.cgdvrix5ikby.ap-northeast-1.rds.amazonaws.com;" +
-                "uid=hollen9;pwd={$cFN[Oh\"p5ra{AN; database=new_schema";
+            string myConnectionString = "???";
             MySql.Data.MySqlClient.MySqlConnection conn;
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
