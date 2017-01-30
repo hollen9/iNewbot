@@ -220,13 +220,14 @@ namespace iNewCord
                     "select rank_id, rank_steamId, rank_nick, rank_point, rank_played_time/3600, rank_kill, rank_death, rank_headshot, rank_sucside, rank_bosskill_1, rank_bosskill_2, rank_bosskill_3, rank_bosskill_4 " +
                     "rank_kill, rank_kill, rank_death, rank_headshot, rank_sucside, rank_bosskill_1, rank_bosskill_2, rank_bosskill_3, rank_bosskill_4 " +
                     "from new_schema.inewsk_rank where rank_point > 0 order by rank_point desc;" +
-                    //rdr[1~6]_Various achievements data:
+                    //rdr[1~]_Various achievements data:
                     "SELECT rank_steamId, rank_kill FROM new_schema.inewsk_rank ORDER BY rank_kill DESC LIMIT 3;" +//Most kills
                     "SELECT rank_steamId, rank_played_time FROM new_schema.inewsk_rank ORDER BY rank_played_time DESC LIMIT 3;" +//Most ptime
                     "SELECT rank_steamId, rank_bosskill_1/rank_kill AS killGym FROM new_schema.inewsk_rank WHERE rank_point >= 888 ORDER BY killGym DESC LIMIT 10;" +//Most Gym kills
                     "SELECT rank_steamId, rank_bosskill_2/rank_kill AS killChoco FROM new_schema.inewsk_rank WHERE rank_point >= 888 ORDER BY killChoco DESC LIMIT 10;" +//Most Choco kills
                     "SELECT rank_steamId, rank_bosskill_3/rank_kill AS killHoppo FROM new_schema.inewsk_rank WHERE rank_point >= 888 ORDER BY killHoppo DESC LIMIT 10;" +//Most Hoppo kills
-                    "SELECT rank_steamId, rank_bosskill_4/rank_kill AS killCyuuBoss FROM new_schema.inewsk_rank WHERE rank_point >= 888 ORDER BY killCyuuBoss DESC LIMIT 10;";//Most CBoss kills
+                    "SELECT rank_steamId, rank_bosskill_4/rank_kill AS killCyuuBoss FROM new_schema.inewsk_rank WHERE rank_point >= 888 ORDER BY killCyuuBoss DESC LIMIT 10;" +//Most CBoss kills
+                    "SELECT rank_steamId, rank_headshot/rank_kill AS rateHeadshot FROM new_schema.inewsk_rank WHERE rank_point >= 888 ORDER BY rateHeadshot DESC LIMIT 10;";//Headshot rate
                 /*string SQL =
                     "set @rank=0;" +
                     "select @rank:=@rank+1 AS rank, rank_id, rank_steamId, rank_nick, rank_point, rank_played_time/3600, " +
@@ -958,7 +959,7 @@ namespace iNewCord
                         }
                         try
                         {
-                            iNewsekaiRankData p = inewRankSteam32IdDict[q];
+                            iNewsekaiRankData p = inewRankSteam32IdDict[q]; //q=Steam32Id (key), p=RankData (value)
 
                             //iNewsekaiRankData p = inewskRankDatas.Where(x => x.Steam32Id == q).FirstOrDefault();
 

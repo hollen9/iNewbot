@@ -22,7 +22,9 @@ namespace iNewCord
             [Description(":cupid:")]
             HimeSlayer = 5, //Hoppo
             [Description(":mahjong:")]
-            CyuuWarrior = 6 //Cyuuboss
+            CyuuWarrior = 6, //Cyuuboss
+            [Description(":dart:")]
+            GendaiArcher = 7 //players with high headshot rate
         }
         public static Dictionary<string, List<Achievement>> UsersAchievement { get; set; }
     }
